@@ -16,7 +16,7 @@ public class MonitoringRule {
     private int expectedStatusCode;
     private Boolean isActive;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "channel_id")
     private Channel channel;
     public MonitoringRule(String url, Integer intervalSeconds, Integer expectedStatusCode, Boolean isActive){

@@ -17,7 +17,7 @@ public class Channel {
     private Long id;
     private Long chatId;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "channel")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "channel")
     private List<MonitoringRule> monitoringRules;
     public Channel(Long chatId){
         this.chatId = chatId;
