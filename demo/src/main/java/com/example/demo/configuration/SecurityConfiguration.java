@@ -3,6 +3,7 @@ package com.example.demo.configuration;
 
 import com.example.demo.service.UserService;
 import com.example.demo.utils.JwtRequestFilter;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -30,6 +31,7 @@ public class SecurityConfiguration {
 
     private final UserService userService;
     private final JwtRequestFilter jwtRequestFilter;
+
     public SecurityConfiguration(@Lazy UserService userService, JwtRequestFilter jwtRequestFilter) {
         this.userService = userService;
         this.jwtRequestFilter = jwtRequestFilter;

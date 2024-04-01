@@ -5,6 +5,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,7 +15,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 @Component
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class JwtRequestFilter extends OncePerRequestFilter {
 
     private final JwtTokenUtils jwtTokenUtils;
@@ -31,7 +32,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 user.setId(id);
                 user.setUsername(username);
             }catch (Exception ex){
-                //Ошибка
+                logger.error("Ошибка при извлечении данных пользователя из JWT токена", ex);
             }
         }
         if(user.getId() != null && SecurityContextHolder.getContext().getAuthentication() == null){

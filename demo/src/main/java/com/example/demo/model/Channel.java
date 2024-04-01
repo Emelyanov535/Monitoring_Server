@@ -11,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "tbl_channel")
 public class Channel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

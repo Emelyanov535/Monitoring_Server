@@ -7,6 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "tbl_rule")
 public class MonitoringRule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
