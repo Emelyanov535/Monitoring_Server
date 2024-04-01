@@ -22,8 +22,8 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public ResponseEntity<?> registration(@RequestBody JwtRequest jwtRequest){
-        return ResponseEntity.ok(userService.createUser(jwtRequest.getUsername(), jwtRequest.getPassword()));
+    public void registration(@RequestBody JwtRequest jwtRequest){
+        userService.createUser(jwtRequest.getUsername(), jwtRequest.getPassword());
     }
 
     @PostMapping("/addChannel")
